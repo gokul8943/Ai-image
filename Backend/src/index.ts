@@ -2,6 +2,9 @@ import express, { Express } from "express";
 import cors from "cors"
 import dotenv from "dotenv"
 import { connectToDB } from "./config/db"
+import postRoutes from './Routes/postRoutes'
+import dalleRoutes from './Routes/dalleRoutes'
+
 
 dotenv.config()
 const app: Express = express();
@@ -11,6 +14,9 @@ const corsOptions = {
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 }
+
+app.use("/api/v1/post",postRoutes)
+app.use("/api/v1/dalle",dalleRoutes)
 
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
