@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 import PostInterface from "./PostType";
 
 const PostSchema = new Schema<PostInterface>({
@@ -15,3 +15,6 @@ const PostSchema = new Schema<PostInterface>({
     required:true
   }
 })
+const Post = model<PostInterface>('Post', PostSchema);
+
+export default Post;
