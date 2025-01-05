@@ -1,7 +1,9 @@
-import express from 'express'
-import * as dotenv from 'dotenv'
-import {Configuration, OpenAIApi} from 'openai'
+import express from 'express';
+import { dalleController } from '../Controllers/dalleController';
 
-dotenv.config();
+const router = express.Router();
 
-const router = express.Router()
+// Use the specific method from the controller
+router.post('/', dalleController.generateImage);
+
+export default router;
